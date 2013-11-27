@@ -50,7 +50,7 @@ module.exports = function (content) {
   var start =
       "@import          \"~bootstrap/less/variables.less\";\n"
     + "@icon-font-path: \"~bootstrap/fonts/\";\n"
-    + "@import          \"bootstrap.config.less\";\n";
+    + "@import          \"./bootstrap.config.less\";\n";
   source = start + styles.filter(function (style) {
     return config.styles[style];
   }).map(function (style) {

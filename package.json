@@ -2,11 +2,13 @@
   "name": "bootstrap-webpack",
   "description": "bootstrap3 package for webpack",
   "main": "index.js",
+  "loader": "index.loader.js",
   "dependencies": {
     "css-loader": "~0.6.3",
     "less-loader": "~0.6.1",
-    "style-loader": "~0.6.0",
-    "jquery": "~1.8.3",
-    "bootstrap": "3.0.2"
+    "style-loader": "~0.6.0"
+  },
+  "peerDependencies": {
+    "bootstrap": "https://github.com/twbs/bootstrap/tarball/v3.0.2"
   }
 }
