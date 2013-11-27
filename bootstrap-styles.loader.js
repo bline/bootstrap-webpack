@@ -1,47 +1,47 @@
 
 var styles = [
-  "mixins.less",
+  "mixins",
 
-  "normalize.less",
-  "print.less",
+  "normalize",
+  "print",
 
-  "scaffolding.less",
-  "type.less",
-  "code.less",
-  "grid.less",
-  "tables.less",
-  "forms.less",
-  "buttons.less",
+  "scaffolding",
+  "type",
+  "code",
+  "grid",
+  "tables",
+  "forms",
+  "buttons",
 
-  "component-animations.less",
-  "glyphicons.less",
-  "dropdowns.less",
-  "button-groups.less",
-  "input-groups.less",
-  "navs.less",
-  "navbar.less",
-  "breadcrumbs.less",
-  "pagination.less",
-  "pager.less",
-  "labels.less",
-  "badges.less",
-  "jumbotron.less",
-  "thumbnails.less",
-  "alerts.less",
-  "progress-bars.less",
-  "media.less",
-  "list-group.less",
-  "panels.less",
-  "wells.less",
-  "close.less",
+  "component-animations",
+  "glyphicons",
+  "dropdowns",
+  "button-groups",
+  "input-groups",
+  "navs",
+  "navbar",
+  "breadcrumbs",
+  "pagination",
+  "pager",
+  "labels",
+  "badges",
+  "jumbotron",
+  "thumbnails",
+  "alerts",
+  "progress-bars",
+  "media",
+  "list-group",
+  "panels",
+  "wells",
+  "close",
 
-  "modals.less",
-  "tooltip.less",
-  "popovers.less",
-  "carousel.less",
+  "modals",
+  "tooltip",
+  "popovers",
+  "carousel",
 
-  "utilities.less",
-  "responsive-utilities.less"
+  "utilities",
+  "responsive-utilities"
 ];
 
 module.exports = function (content) {
@@ -56,6 +56,5 @@ module.exports = function (content) {
   }).map(function (style) {
     return "@import \"~bootstrap/less/" + style + ".less\";";
   }).join("\n");
-  console.log("Source: ", source);
   return source;
 }
