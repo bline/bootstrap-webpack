@@ -14,12 +14,9 @@ var scripts = [
   'affix'
 ]
 
-util = require("util");
 module.exports = function () {};
 module.exports.pitch = function (configPath) {
-  console.log(util.inspect(configPath));
   this.cacheable(true);
-
   var config = require(configPath);
   return scripts.filter(function (script) {
     return config.scripts[script];
