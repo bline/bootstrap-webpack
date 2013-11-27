@@ -6,7 +6,7 @@
     "css-loader": "~0.6.3",
     "less-loader": "~0.6.1",
     "style-loader": "~0.6.0",
-    "jquery-browserify": "~1.8.1",
+    "jquery": "~1.8.3",
     "bootstrap": "3.0.2"
   }
 }
