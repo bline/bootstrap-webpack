@@ -23,6 +23,6 @@
     "url": "https://github.com/bline/bootstrap-webpack.git"
   },
   "peerDependencies": {
-    "bootstrap": "https://github.com/twbs/bootstrap/tarball/v3.0.2"
+    "bootstrap": "3.0.2"
   }
 }
