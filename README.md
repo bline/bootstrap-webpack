@@ -7,18 +7,27 @@ bootstrap package for webpack
 Usage
 -----
 
+For a complete example see:
+[bootstrap-webpack-example](https://github.com/bline/bootstrap-webpack-example).
+To see the example running live go to
+[the bootstrap-webpack-example Gitub Pages](http://bline.github.io/bootstrap-webpack-example/).
+
 Bootstrap use some fonts. You need to configure the correct loaders in your `webpack.config.js`. Example:
 
 ``` javascript
 module.exports = {
   module: {
     loaders: [
-      // the url-loader uses DataUrls.
-      // the file-loader emits files.
-      { test: /\.woff$/,   loader: "url-loader?limit=10000&minetype=application/font-woff" },
-      { test: /\.ttf$/,    loader: "file-loader" },
-      { test: /\.eot$/,    loader: "file-loader" },
-      { test: /\.svg$/,    loader: "file-loader" }
+      // **IMPORTANT** This is needed so that each bootstrap js file required by
+      // bootstrap-webpack has access to the jQuery object
+      { test: /bootstrap\/js\//, loader: 'imports?jQuery=jquery' },
+
+      // Needed for the css-loader when [bootstrap-webpack](https://github.com/bline/bootstrap-webpack)
+      // loads bootstrap's css.
+      { test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,   loader: "url?limit=10000&minetype=application/font-woff" },
+      { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,    loader: "url?limit=10000&minetype=application/octet-stream" },
+      { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,    loader: "file" },
+      { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,    loader: "url?limit=10000&minetype=image/svg+xml" }
     ]
   }
 };
@@ -91,3 +100,4 @@ Example:
 @btn-default-color:              #444;
 @btn-default-bg:                 #eee;
 ```
+
