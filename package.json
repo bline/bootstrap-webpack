@@ -2,7 +2,7 @@
   "name": "bootstrap-webpack",
   "description": "bootstrap3 package for webpack",
   "main": "index.js",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "loader": "index.loader.js",
   "keywords": [
     "bootstrap",
