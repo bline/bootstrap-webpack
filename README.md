@@ -3,6 +3,11 @@ bootstrap-webpack
 
 bootstrap package for webpack
 
+Installation
+-----
+
+    npm install --save bootstrap-webpack
+
 
 Usage
 -----
