@@ -17,7 +17,7 @@ module.exports = {
     loaders: [
       // the url-loader uses DataUrls.
       // the file-loader emits files.
-      { test: /\.woff$/,   loader: "url-loader?limit=10000&mimetype=application/font-woff" },
+      { test: /\.(woff|woff2)$/,  loader: "url-loader?limit=10000&mimetype=application/font-woff" },
       { test: /\.ttf$/,    loader: "file-loader" },
       { test: /\.eot$/,    loader: "file-loader" },
       { test: /\.svg$/,    loader: "file-loader" }
@@ -57,6 +57,33 @@ module.exports = {
   ]
 };
 ```
+
+### Using with other js loaders.
+
+If you are using other loaders for all js files`(test: /\.js$/)`, this might interfere with bootstrap-webpack.
+You can override the configuration loader order in the module request to suit special cases.
+
+* adding ! to a request will disable configured preLoaders
+``` javascript
+require("!bootstrap-webpack!./bootstrap.config.js")
+```
+* adding !! to a request will disable all loaders specified in the configuration
+``` javascript
+require("!!bootstrap-webpack!./bootstrap.config.js")
+```
+* adding -! to a request will disable configured preLoaders and loaders but not the postLoaders
+``` javascript
+require("-!bootstrap-webpack!./bootstrap.config.js")
+```
+
+Check details in [`webpack loader order`](https://webpack.github.io/docs/loaders.html)
+
+You can also change your configuration, so that other loaders are not applied to bootstrap.
+
+1. Use `exclude` option of the module.loaders section of the config.
+2. Adjust the regex in `test` option of the module loaders to prevent matching all the js files to which the loaders are applied.
+
+See the explanation of different module options under [`module.loaders`](http://webpack.github.io/docs/configuration.html)
 
 #### `bootstrap.config.js`
 
