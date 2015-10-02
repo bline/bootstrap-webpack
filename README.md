@@ -123,15 +123,33 @@ Example:
 
 ### extract-text-webpack-plugin
 
-Configure post style loaders in `bootstrap.config.js`.
+Configure style loader in `bootstrap.config.js`.
 
 Example:
 
 ``` javascript
 module.exports = {
-  postStyleLoaders: [
-    require.resolve('extract-text-webpack-plugin/loader.js') + '?{"omit":1,"extract":true,"remove":true}'
-  ],
+  styleLoader: require('extract-text-webpack-plugin').extract('style-loader', 'css-loader!less-loader'),
+  scripts: {
+    ...
+  },
+  styles: {
+    ...
+  }
+};
+```
+
+Install `extract-text-webpack-plugin` before using this configuration.
+
+### extract-text-webpack-plugin and postcss-loader
+
+Configure style loader in `bootstrap.config.js`.
+
+Example:
+
+``` javascript
+module.exports = {
+  styleLoader: require('extract-text-webpack-plugin').extract('style-loader', 'css-loader!postcss-loader!less-loader'),
   scripts: {
     ...
   },
