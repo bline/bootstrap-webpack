@@ -17,14 +17,22 @@ module.exports = {
     loaders: [
       // the url-loader uses DataUrls.
       // the file-loader emits files.
-      { test: /\.(woff|woff2)$/,  loader: "url-loader?limit=10000&mimetype=application/font-woff" },
-      { test: /\.ttf$/,    loader: "file-loader" },
-      { test: /\.eot$/,    loader: "file-loader" },
-      { test: /\.svg$/,    loader: "file-loader" }
+      {test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/font-woff'},
+      {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream'},
+      {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file'},
+      {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml'}
     ]
   }
 };
 ```
+
+Bootstrap javascript components depends on jQuery. The simplest way of adding jQuery to your webpack app is by exposing `$` and `jQuery` to global namespace.
+
+``` javascript
+require('expose?$!expose?jQuery!jquery');
+```
+
+Add it before requiring `bootstrap-webpack`. This uses `expose-loader` of webpack. Install [expose-loader](https://github.com/webpack/expose-loader) by `npm install expose-loader --save-dev`.
 
 ### Complete Bootstrap
 
