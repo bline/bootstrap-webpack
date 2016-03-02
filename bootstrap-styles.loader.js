@@ -49,12 +49,11 @@ module.exports = function (content) {
   var config = this.exec(content, this.resourcePath);
   var start =
       "@import          \"~bootstrap/less/variables.less\";\n"
-    + "@icon-font-path: \"~bootstrap/fonts/\";\n"
-    + "@import          \"./bootstrap.config.less\";\n";
+    + "@icon-font-path: \"~bootstrap/fonts/\";\n";
   source = start + styles.filter(function (style) {
     return config.styles[style];
   }).map(function (style) {
     return "@import \"~bootstrap/less/" + style + ".less\";";
   }).join("\n");
-  return source;
+  return source + "@import          \"./bootstrap.config.less\";\n";
 }
