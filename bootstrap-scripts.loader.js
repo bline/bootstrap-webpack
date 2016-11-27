@@ -21,6 +21,6 @@ module.exports.pitch = function (configPath) {
   return scripts.filter(function (script) {
     return config.scripts[script];
   }).map(function (script) {
-    return "require(" + JSON.stringify("bootstrap/js/" + script) + ");";
+    return "require(" + JSON.stringify("imports?jQuery=jquery!bootstrap/js/" + script) + ");";
   }).join("\n");
 }
